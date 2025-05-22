@@ -38,7 +38,7 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
     .then(data => {
 
         let div = document.getElementById("container")
-        let div2 = document.getElementById("div2")
+
         // ici on utilise les données reçues
         console.log(data);
         // Dans la fonction, crée un élément div pour afficher le nom de l'entreprise, sa phrase d'accroche et un bouton d'appel à l'action.
@@ -47,17 +47,41 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
         <h2>${data.phraseAccroche} </h2> 
         <button>${data.texteAppelAction}</button>
         `
-         // Pour chaque activité dans les données JSON, crée dynamiquement une div contenant un titre, une description et une image.
-// Affiche ces informations dans une section dédiée, avec une carte pour chaque activité si les données contiennent un lien vers une image
-let activite = data.activites; 
+        // Pour chaque activité dans les données JSON, crée dynamiquement une div contenant un titre, une description et une image.
+        // Affiche ces informations dans une section dédiée, avec une carte pour chaque activité si les données contiennent un lien vers une image
+        let section = document.getElementById("section");
 
-activite.forEach(element => {
+        data.avantagesClients.forEach(element => {
+            section.innerHTML += `
+<div>
+<h3>${element} </h3>
+</div>`;
+
+        });
+
+        let section2 = document.getElementById("section2")
+
+        data.activites.forEach(element => {
+             section2.innerHTML += `
+ <div>
+<h3>${element.nom}</h3>
+ <p>${element.description} </p>
+ <img src=${element["image-url"]}></img>  
+</div>`;
+    });
+
+// 🔴🔴 Niveau 4 – Afficher les témoignages
+// // Pour chaque témoignage dans les données JSON, crée dynamiquement une div contenant le prénom, le commentaire.
+// // Ajoute ces témoignages sous les activités dans la page.
+
+let div2 = document.getElementById("div2")
+data.temoignages.forEach(element => {
+    div2.innerHTML +=`
+    <h3>${element.prenom} </h3>
+    <h3>${element.commentaire} </h3>`
     
 });
 
-
-div2.innerHTML = `
-`
 
     })
     .catch(error => {
@@ -67,5 +91,4 @@ div2.innerHTML = `
 //   }
 
 //   afficherContenu();
-
 
