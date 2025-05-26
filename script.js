@@ -61,31 +61,45 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
 </div>`;
 
         });
+        div.appendChild(section);
 
         let section2 = document.getElementById("section2")
         section2.classList.add("section2")
 
         data.activites.forEach(element => {
             section2.innerHTML += `
- <div   >
-<h3>${element.nom}</h3>
- <p>${element.description} </p>
- <img src=${element["image-url"]}></img>  
-</div>`;
+            <div>
+            <img src=${element["image-url"]}></img>  
+            <h3>${element.nom}</h3>
+            <p>${element.description} </p>
+            </div>`;
+            // rajouter les temoignages communs 
+            data.temoignages.forEach(t => {
+                if (t.typeExperience == element.nom) {
+                    section2.innerHTML += `
+                        <div class="temoignage-card">         
+                        <h3>${t.prenom} </h3>
+                        <p>${t.commentaire} </p>
+                        </div>`
+                }
+            });
         });
 
         // 🔴🔴 Niveau 4 – Afficher les témoignages
         // // Pour chaque témoignage dans les données JSON, crée dynamiquement une div contenant le prénom, le commentaire.
         // // Ajoute ces témoignages sous les activités dans la page.
 
-        let sectionCommentaire = document.getElementById("sectionCommentaire")
-        sectionCommentaire.classList.add("sectionCommentaire");       
-        data.temoignages.forEach(element => {
-            sectionCommentaire.innerHTML += `
-    <h3>${element.prenom} </h3>
-    <p>${element.commentaire} </p>`
+    //     let sectionCommentaire = document.getElementById("sectionCommentaire")
+    //     sectionCommentaire.classList.add("sectionCommentaire");
+    //     data.temoignages.forEach(element => {
+    //         sectionCommentaire.innerHTML += `
+    
+    //  <div>         
+    // <h3>${element.prenom} </h3>
+    // <p>${element.commentaire} </p>
+    // </div>`;
 
-        });
+    //     });
 
 
     })
