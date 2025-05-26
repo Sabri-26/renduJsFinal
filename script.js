@@ -37,19 +37,22 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
     .then(response => response.json()) // transforme la réponse en JSON
     .then(data => {
 
-        let div = document.getElementById("container")
-
+        let div = document.getElementById("container");
+        div.classList.add("container");
         // ici on utilise les données reçues
         console.log(data);
         // Dans la fonction, crée un élément div pour afficher le nom de l'entreprise, sa phrase d'accroche et un bouton d'appel à l'action.
         div.innerHTML = `
+       <div>
         <h1>${data.nomCommercial}</h1>
         <h2>${data.phraseAccroche} </h2> 
         <button>${data.texteAppelAction}</button>
+        </div>
         `
         // Pour chaque activité dans les données JSON, crée dynamiquement une div contenant un titre, une description et une image.
         // Affiche ces informations dans une section dédiée, avec une carte pour chaque activité si les données contiennent un lien vers une image
         let section = document.getElementById("section");
+        section.classList.add("section");
 
         data.avantagesClients.forEach(element => {
             section.innerHTML += `
@@ -60,27 +63,29 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
         });
 
         let section2 = document.getElementById("section2")
+        section2.classList.add("section2")
 
         data.activites.forEach(element => {
-             section2.innerHTML += `
- <div>
+            section2.innerHTML += `
+ <div   >
 <h3>${element.nom}</h3>
  <p>${element.description} </p>
  <img src=${element["image-url"]}></img>  
 </div>`;
-    });
+        });
 
-// 🔴🔴 Niveau 4 – Afficher les témoignages
-// // Pour chaque témoignage dans les données JSON, crée dynamiquement une div contenant le prénom, le commentaire.
-// // Ajoute ces témoignages sous les activités dans la page.
+        // 🔴🔴 Niveau 4 – Afficher les témoignages
+        // // Pour chaque témoignage dans les données JSON, crée dynamiquement une div contenant le prénom, le commentaire.
+        // // Ajoute ces témoignages sous les activités dans la page.
 
-let div2 = document.getElementById("div2")
-data.temoignages.forEach(element => {
-    div2.innerHTML +=`
+        let sectionCommentaire = document.getElementById("sectionCommentaire")
+        sectionCommentaire.classList.add("sectionCommentaire");       
+        data.temoignages.forEach(element => {
+            sectionCommentaire.innerHTML += `
     <h3>${element.prenom} </h3>
-    <h3>${element.commentaire} </h3>`
-    
-});
+    <p>${element.commentaire} </p>`
+
+        });
 
 
     })

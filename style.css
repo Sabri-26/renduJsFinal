@@ -1,1 +1,101 @@
- 
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+/* _______________________________________________________________________________________________________ */
+body {
+    background: #1C1C1E;
+    color: white;
+}
+
+/* _______________________________________________________________________________________________________ */
+
+.container {
+    text-align: center;
+
+    button {
+       color: black;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px #ffffff5e;
+    font-weight: bold;
+    }
+
+}
+
+/* _______________________________________________________________________________________________________ */
+
+.section {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+
+    div {
+
+        box-shadow: 5px 5px 10px;
+        border-radius: 5px;
+        /* Pour éviter les débordements */
+        background-color: #2E2E30;
+        text-align: center;
+        /* gap: 10px; */
+        /* margin: 33px; */
+        width: 20%;
+        padding: 5px;
+
+    }
+    /* h3{
+                  margin: 15px;
+    } */
+
+
+
+
+
+}
+
+/* _______________________________________________________________________________________________________ */
+
+.section2 {
+    display: flex;
+    justify-content: space-around;
+    margin: 5%;
+    gap: 20px;
+
+
+    div {
+        box-shadow: 5px 5px 10px;
+        border-radius: 5px;
+        /* Pour éviter les débordements */
+        background-color: #2E2E30;
+        text-align: center;
+        gap: 10px;
+
+    }
+
+    p {
+        margin: 10px;
+
+    }
+
+    img {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px;
+    }
+
+    /* _______________________________________________________________________________________________________ */
+}
+
+.div2 {
+    display: flex;
+    margin: 50px;
+    border-radius: 10px;
+    gap: 10px;
+    box-shadow: 10px 4px 10px;
+    background-color: #4d4d5e;
+    text-align: center;
+}
