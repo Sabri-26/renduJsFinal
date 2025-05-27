@@ -85,21 +85,13 @@ fetch("https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
             });
         });
 
-        // 🔴🔴 Niveau 4 – Afficher les témoignages
-        // // Pour chaque témoignage dans les données JSON, crée dynamiquement une div contenant le prénom, le commentaire.
-        // // Ajoute ces témoignages sous les activités dans la page.
 
-    //     let sectionCommentaire = document.getElementById("sectionCommentaire")
-    //     sectionCommentaire.classList.add("sectionCommentaire");
-    //     data.temoignages.forEach(element => {
-    //         sectionCommentaire.innerHTML += `
-    
-    //  <div>         
-    // <h3>${element.prenom} </h3>
-    // <p>${element.commentaire} </p>
-    // </div>`;
+        let footer = document.getElementById("footer");
+        footer.classList.add("footer")
+        footer.innerHTML = `
+     <h5>© Copyright 2025  - Sabri Ababsa.Tous droits réservés.</h5>
+ `;
 
-    //     });
 
 
     })
